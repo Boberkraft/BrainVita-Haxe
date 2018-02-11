@@ -5,6 +5,6 @@ package;
  */
 typedef BallType =
 {
-	var sprite:Int;
-	var shadow:Int;
+    var sprite:Int;
+    var shadow:Int;
 }
