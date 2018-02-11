@@ -3,13 +3,13 @@ package;
 /**
  * @author Andrzej
  */
-enum Hardness 
+enum Hardness
 {
-	NORMAL;
-	HARD; // not used!
-	HARDCORE;
-	WINSCREEN;
-	WELCOMESCREEN;
-	ANIME;
-	SCREAM;
+    NORMAL;
+    HARD; // not used!
+    HARDCORE;
+    WINSCREEN;
+    WELCOMESCREEN;
+    ANIME;
+    SCREAM;
 }

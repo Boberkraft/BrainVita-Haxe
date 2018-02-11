@@ -1,7 +1,7 @@
 package;
 
-
-typedef BallData = {
-	var ball:BallType;
-	var music:String;
+typedef BallData =
+{
+    var ball:BallType;
+    var music:String;
 }
