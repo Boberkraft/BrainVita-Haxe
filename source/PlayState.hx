@@ -79,7 +79,9 @@ class PlayState extends FlxState
         var destro = function (obj:FlxBasic) {obj.kill(); obj.destroy(); };
 
         mouse.dropBall();
+        #if !debug
         trySave();
+        #end
         mapCreator.loadMap(level);
         //background.forEach(destro);
         background.add(PlayState.BACKGROUND());

@@ -8,12 +8,12 @@ class GameStatus
 {
     private var gt:Hardness = Hardness.NORMAL;
     public static inline var SOUND_EXT:String = #if flash ".mp3" #else ".ogg" #end ;
-public static inline var MAX_LEVELS = 4;
-public static inline var TILE_WIDTH = 50;
-public static inline var TILE_HEIGHT = 50;
-public static inline var FIRST_LEVEL = 4;
-public static var SHOWN_MENU = true;
-static var random:FlxRandom = new FlxRandom();
+    public static inline var MAX_LEVELS = 5;
+    public static inline var TILE_WIDTH = 50;
+    public static inline var TILE_HEIGHT = 50;
+    public static inline var FIRST_LEVEL = 1;
+    public static var SHOWN_MENU = true;
+    static var random:FlxRandom = new FlxRandom();
 
     // read but dont get readen
     static var girls(default, never) = [ {sprite: 15, shadow:1},
