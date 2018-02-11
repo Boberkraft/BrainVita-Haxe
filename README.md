@@ -1,14 +1,20 @@
-BrainVita-Haxe
-Current version 0.0.1 build 1324
-OpenFl 		ver 3.6.1
-HaxeFlixel 	ver 4.3.0
-lime 		ver 2.9.1
+# BrainVita-Haxe
+Current version **(0.0.1 build 1324)**
 
-Assets at
-https://drive.google.com/drive/folders/1sUJlvwo8KRt7QTEG2jFt6uaU8A0YtYiH
+Build upon:
 
-Put them into this project so that it looks like this:
+OpenFL 		**3.6.1**
 
+HaxeFlixel 	**4.3.0**
+
+lime 		**2.9.1**
+
+
+Assets at [GoogleDrive](https://drive.google.com/drive/folders/1sUJlvwo8KRt7QTEG2jFt6uaU8A0YtYiH)
+
+Put them into this project so that everything resembles this:
+
+```
 BrainVita-Haxe:
  |
  |- assets
@@ -24,3 +30,4 @@ BrainVita-Haxe:
  |- source/...
  |
  |- BrainVita2.hxproj
+```
