@@ -9,8 +9,17 @@ HaxeFlixel 	**4.3.0**
 
 lime 		**2.9.1**
 
+![Gameplay](/images/gif.gif)
 
-Assets at [GoogleDrive](https://drive.google.com/drive/folders/1sUJlvwo8KRt7QTEG2jFt6uaU8A0YtYiH)
+![Gameplay](/images/welcomescreen.png)
+
+![Gameplay](/images/menu.png)
+
+![Gameplay](/images/hell.png)
+
+![Gameplay](/images/anime.png)
+
+Assets and .exe at [GoogleDrive](https://drive.google.com/drive/folders/1sUJlvwo8KRt7QTEG2jFt6uaU8A0YtYiH)
 
 Put them into this project so that everything resembles this:
 
