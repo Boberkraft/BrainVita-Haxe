@@ -17,8 +17,6 @@ lime 		**2.9.1**
 
 ![Gameplay](/images/hell.png)
 
-![Gameplay](/images/anime.png)
-
 Assets and .exe at [GoogleDrive](https://drive.google.com/drive/folders/1sUJlvwo8KRt7QTEG2jFt6uaU8A0YtYiH)
 
 Put them into this project so that everything resembles this:
