@@ -1,5 +1,5 @@
 # BrainVita-Haxe
-Current version **(0.0.1 build 1324)**
+Current version **(0.0.1)**
 
 Build upon:
 
