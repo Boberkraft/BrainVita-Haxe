@@ -21,6 +21,10 @@ class Mouse extends FlxObject
     private var tileY:Int;
     private var dropBallClick:DoubleClick;
     private var undoMoveClick:DoubleClick;
+    #if android
+    private var isActiveTouch:Bool = false;
+    private var activeTouchID:Int = 0;
+    #end
 
     public function new( _playStage:PlayState, _gameMap:GameMap):Void
     {
@@ -62,6 +66,7 @@ class Mouse extends FlxObject
         {
             return;
         }
+        #if FLX_MOUSE
         if (FlxG.mouse.justPressed)
         {
             var cords:Point = gameMap.getClickedTile(FlxG.mouse.x, FlxG.mouse.y);
@@ -103,6 +108,84 @@ class Mouse extends FlxObject
             holdingBall.x = FlxG.mouse.x - Std.int(GameStatus.TILE_WIDTH / 2);
             holdingBall.y = FlxG.mouse.y - Std.int(GameStatus.TILE_HEIGHT / 2);
         }
+        #else
+        var mouse = null;
+        for (touch in FlxG.touches.list)
+        {
+            if (isActiveTouch == false)
+            {
+                activeTouchID = touch.touchPointID;
+                mouse = touch;
+                break;
+                
+                
+            }
+            if (touch.touchPointID == activeTouchID)
+            {
+                mouse = touch;
+                break;
+            }
+        }
+        if (mouse != null)
+        {
+            if (mouse.justPressed)
+            {
+                //picking a ball
+                var cords:Point = gameMap.getClickedTile(mouse.x, mouse.y);
+                tileX = cords.x;
+                tileY = cords.y;
+
+                trace("(" + tileX +" "+ tileY + ") Clicked");
+
+                if (gameMap.isBall(tileX,tileY))
+                {
+                    if (!playState.menu.isMenuActive())
+                    {
+                        pickBall(gameMap.getBall(tileX, tileY));
+                    }
+                }
+            }
+            if (mouse.pressed && holdingBall != null)
+            {
+                //moving ball sprite
+                holdingBall.x = mouse.x - Std.int(GameStatus.TILE_WIDTH / 2);
+                holdingBall.y = mouse.y - Std.int(GameStatus.TILE_HEIGHT / 2);
+            }
+            //else
+            //{
+                //undoMoveClick.triger();
+            //}
+            
+            if (mouse.justReleased && holdingBall != null)
+            {
+                //placing a ball
+                var cords:Point = gameMap.getClickedTile(mouse.x, mouse.y);
+                tileX = cords.x;
+                tileY = cords.y;
+                trace("Trying move: (" + ballInitial.x + "," + ballInitial.y + ") -> (" + tileX + "," + tileY + ")");
+                if (gameMap.TryMoveBall(ballInitial, {x: tileX, y:tileY}))
+                {
+                    dropBall();
+                    if (gameMap.remainingBalls() == 1)
+                    {
+                        playState.loadNextLevel();
+                    }
+                    isActiveTouch = false;
+                }
+                else
+                {
+                    if (gameMap.TryMoveBall(ballInitial, ballInitial))
+                    {
+                        dropBall();
+                    }
+                    isActiveTouch = false;
+                }
+                
+            }
+        }
+        
+        #end
+        
     }
 }
 

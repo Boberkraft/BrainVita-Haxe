@@ -94,10 +94,20 @@ class WinStage extends FlxState
                 emiterToShow = 0;
             emiterTimer = 0 + random.float(0.5,1);
         }
+        #if !android
         if (FlxG.mouse.justPressed)
         {
             exitToMenu();
         }
+        #else
+        //for (touch in FlxG.touches.list)
+        //{
+            //if (touch.justPressed)
+            //{
+                //exitToMenu();
+            //}
+        //}
+        #end
     }
     function exitToMenu()
     {

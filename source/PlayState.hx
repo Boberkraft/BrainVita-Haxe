@@ -125,6 +125,7 @@ class PlayState extends FlxState
     override public function update(elapsed:Float)
     {
         super.update(elapsed);
+        #if !android
         if (FlxG.keys.pressed.DOWN)
         {
             mapSprite.y += 1;
@@ -141,6 +142,7 @@ class PlayState extends FlxState
         {
             mapSprite.x += 1;
         }
+        #end
 
     }
 }

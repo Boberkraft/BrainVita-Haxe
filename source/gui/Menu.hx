@@ -79,15 +79,16 @@ class Menu extends FlxGroup
 
     override public function update(elapsed:Float):Void
     {
+        
         super.update(elapsed);
-        if (menuWindow.active && FlxG.mouse.justPressed && menuWindow.active)
+        #if FLX_MOUSE
+        if (menuWindow.active && FlxG.mouse.justPressed)
         {
             if (!menuWindow.overlaps(new FlxObject(FlxG.mouse.x, FlxG.mouse.y, 1, 1)))
             {
                 hideMenuWindow();
             }
             // XD
-
         }
         if (FlxG.keys.justPressed.M)
         {
@@ -99,12 +100,26 @@ class Menu extends FlxGroup
             {
                 showMenuWindow();
             }
-
         }
         if (FlxG.keys.justPressed.R)
         {
             restartGame();
         }
+        #elseif
+        for (touch in FlxG.touches.list)
+        {
+            if (menuWindow.active && touch.justPressed)
+            {
+                var ne = new FlxObject(touch.x, touch.y, 1, 1).overlaps(menuWindow));
+                if (!ne)
+                {
+                    hideMenuWindow();
+                }
+                // XD
+            }
+        }
+        #end
+
         //trace(menuWindow.x,menuWindow.y, menuWindow.visible);
     }
     public function isMenuActive():Bool

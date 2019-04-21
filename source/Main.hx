@@ -13,7 +13,11 @@ class Main extends Sprite
         //TODO: jak trzymasz klocka i klikniesz prawym to klocek znika!.
         super();
         //FlxG.stage.quality = StageQuality.BEST;
-        addChild(new FlxGame(0, 0, WelcomeState, 1, 60, 60, true));
+        #if FLX_MOUSE
+            addChild(new FlxGame(800, 600, WelcomeState, 1, 60, 60, true));
+        #else
+            addChild(new FlxGame(800, 500, WelcomeState, 1, 60, 60, true));
+        #end
         SoundManager.playMusic();
     }
 }

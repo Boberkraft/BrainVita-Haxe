@@ -49,11 +49,20 @@ class WelcomeState extends FlxState
     override public function update(elapsed:Float):Void
     {
         super.update(elapsed);
+        #if FLX_MOUSE
         if (FlxG.mouse.justPressed)
         {
-
             FlxG.switchState(new PlayState());
         }
+        #else
+        for (touch in FlxG.touches.list)
+        {
+            if (touch.justPressed)
+            {
+                FlxG.switchState(new PlayState());
+            }
+        }
+        #end
     }
 
     private function createText(X:Int, Y:Int, Alignt:FlxTextAlign, Color:FlxColor, size:Int = 8):FlxText
